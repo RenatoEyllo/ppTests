@@ -1,6 +1,6 @@
 package com.eyllo.test.performance;
 
-import com.eyllo.test.performance.operation.PutOperation;
+import com.eyllo.test.performance.operation.ReadOperation;
 
 /**
  * Class in charge of running the specific operation test 
@@ -14,7 +14,7 @@ public class TestRunner {
    */
   public static void main(String[] args) {
     PerformanceTest perfTest = new PerformanceTest();
-    perfTest.startThreads(PutOperation.class);
+    perfTest.startThreads(ReadOperation.class);
     perfTest.waitForCompleting();
     double execSecsTime = perfTest.getAvgExecTime() / 1000000000.0;
     System.out.format("%10.3f %s", execSecsTime, " seconds.");

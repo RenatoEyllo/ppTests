@@ -1,5 +1,8 @@
 package com.eyllo.test.performance;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.eyllo.test.performance.operation.AbstractOperation;
 
 /**
@@ -8,6 +11,11 @@ import com.eyllo.test.performance.operation.AbstractOperation;
  */
 public class PerformanceTest {
 
+  /**
+   * Object to help us log performance test behavior
+   */
+  public static final Logger LOG = LoggerFactory.getLogger(AbstractOperation.class);
+  
   /**
    * Default number of measurements stored in memory
    */
@@ -54,27 +62,27 @@ public class PerformanceTest {
   }
 
   public final boolean startThreads(Class<?> pOperation){
-    System.out.println("Starting Runnable threads");
+    getLogger().info("Starting Runnable threads");
     boolean result = false;
     try{
       for(int iCnt = 0; iCnt < this.numThreads; iCnt++){
         Thread tmpThread = (Thread) pOperation.newInstance();
         tmpThread.setName("t"+String.valueOf(iCnt) + "-" + tmpThread.getName());
-        System.out.println("Starting Thread " + tmpThread.getName());
+        getLogger().debug("Starting Thread " + tmpThread.getName());
         this.runningThreads[iCnt] = tmpThread;
         this.runningThreads[iCnt].start();
         System.out.println(String.valueOf(iCnt) + " threads started.");
       }
       result = true;
     }catch(Exception e){
-      System.out.println("Error while starting threads.");
+      getLogger().error("Error while starting threads.");
       e.printStackTrace();
     }
     return result;
   }
 
   public final synchronized boolean waitForCompleting(){
-    System.out.println("Waiting for Runnable threads to finish.");
+    getLogger().info("Waiting for Runnable threads to finish.");
     boolean result = false;
     try {
       for (int iCnt = 0; iCnt < this.numThreads; iCnt++) {
@@ -83,7 +91,7 @@ public class PerformanceTest {
       }
       result = true;
     } catch (InterruptedException e) {
-      System.out.println("Error while waiting for threads.");
+      getLogger().error("Error while waiting for threads.");
       e.printStackTrace();
     }
     return result;
@@ -91,12 +99,14 @@ public class PerformanceTest {
 
   @SuppressWarnings("deprecation")
   public final boolean stopThreads(){
+    getLogger().info("Stopping Runnable threads to finish.");
     boolean result = false;
     try{
       for(int iCnt = 0; iCnt < this.numThreads; iCnt++)
         this.runningThreads[iCnt].stop();
       result = true;
     }catch(Exception e){
+      getLogger().error("Error while stopping threads.");
       result = false;
     }
     return result;
@@ -134,4 +144,11 @@ public class PerformanceTest {
     this.numThreads = numThreads;
   }
 
+  /**
+   * Gets operation class logger object
+   * @return
+   */
+  public static Logger getLogger(){
+    return LOG;
+  }
 }
