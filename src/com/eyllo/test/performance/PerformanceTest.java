@@ -61,6 +61,11 @@ public class PerformanceTest {
     this.setRunningThreads(new Thread[this.numThreads]);
   }
 
+  /**
+   * Method that starts all threads
+   * @param pOperation
+   * @return
+   */
   public final boolean startThreads(Class<?> pOperation){
     getLogger().info("Starting Runnable threads");
     boolean result = false;
@@ -81,6 +86,10 @@ public class PerformanceTest {
     return result;
   }
 
+  /**
+   * Method that waits until all threads are completed
+   * @return
+   */
   public final synchronized boolean waitForCompleting(){
     getLogger().info("Waiting for Runnable threads to finish.");
     boolean result = false;
@@ -97,6 +106,10 @@ public class PerformanceTest {
     return result;
   }
 
+  /**
+   * Method that stops all threads no matter what
+   * @return
+   */
   @SuppressWarnings("deprecation")
   public final boolean stopThreads(){
     getLogger().info("Stopping Runnable threads to finish.");
@@ -112,10 +125,18 @@ public class PerformanceTest {
     return result;
   }
 
+  /**
+   * Setter for the measure count
+   * @param pMeasureCount
+   */
   public void setMeasureCount(int pMeasureCount){
     this.measureCount = pMeasureCount;
   }
 
+  /**
+   * Obtains the average time of executing an operation
+   * @return
+   */
   public double getAvgExecTime(){
     double avg = 0;
     for(int iCnt = 0; iCnt < this.measureCount; iCnt++)
@@ -124,22 +145,42 @@ public class PerformanceTest {
     return this.avgExecTime;
   }
 
+  /**
+   * Getter for execution time measures
+   * @return
+   */
   public double[] getExecTime() {
     return execTime;
   }
 
+  /**
+   * Setter for execution time measures
+   * @param execTime
+   */
   public void setExecTime(double execTime[]) {
     this.execTime = execTime;
   }
 
+  /**
+   * Setter for runningThreads
+   * @param pRunningThreads
+   */
   public void setRunningThreads(Thread pRunningThreads[]){
     this.runningThreads = pRunningThreads;
   }
 
+  /**
+   * Gets the number of threads being run
+   * @return
+   */
   public int getNumThreads() {
     return numThreads;
   }
 
+  /**
+   * Sets the number of threads that will be run
+   * @param numThreads
+   */
   public void setNumThreads(int numThreads) {
     this.numThreads = numThreads;
   }
