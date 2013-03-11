@@ -1,9 +1,10 @@
-package com.eyllo.test.performance;
+package com.eyllo.paprika.test.stress;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.eyllo.test.performance.operation.AbstractOperation;
+import com.eyllo.paprika.test.exception.PaprikaStressException;
+import com.eyllo.paprika.test.stress.operation.AbstractOperation;
 
 /**
  * Class that runs all operation threads
@@ -25,6 +26,11 @@ public class PerformanceTest {
    * Default number of threads to be run executing an operation
    */
   private static int DEFAULT_NUM_THREADS = 10;
+  
+  /**
+   * Default number of threads to be run executing an operation
+   */
+  private static int DEFAULT_OP_NUMBER = 10;
 
   /**
    * Execution time from each operation
@@ -47,6 +53,11 @@ public class PerformanceTest {
   private int numThreads;
 
   /**
+   * Number of operations to be performed by each thread.
+   */
+  private int opNumber;
+
+  /**
    * Threads that will be run
    */
   private Thread runningThreads[];
@@ -56,11 +67,25 @@ public class PerformanceTest {
    */
   public PerformanceTest() {
     this.setMeasureCount(DEFAULT_MEASURE_COUNTS);
-    this.setNumThreads(DEFAULT_NUM_THREADS);
+    this.setThreadsNum(DEFAULT_NUM_THREADS);
+    this.setOpNumber(DEFAULT_OP_NUMBER);
     this.setExecTime(new double[this.measureCount]);
     this.setRunningThreads(new Thread[this.numThreads]);
   }
 
+  /**
+   * Constructor using all necessary parameters
+   * @param pMeasureCount
+   * @param pThreadsNum
+   * @param pOpNumber
+   */
+  public PerformanceTest(int pMeasureCount, int pThreadsNum, int pOpNumber){
+    if(pMeasureCount != pThreadsNum)
+      throw new PaprikaStressException("The number of threads should be the same as the number of measurements taken.");
+    this.setMeasureCount(pMeasureCount);
+    this.setThreadsNum(pThreadsNum);
+    this.setOpNumber(pOpNumber);
+  }
   /**
    * Method that starts all threads
    * @param pOperation
@@ -72,6 +97,7 @@ public class PerformanceTest {
     try{
       for(int iCnt = 0; iCnt < this.numThreads; iCnt++){
         Thread tmpThread = (Thread) pOperation.newInstance();
+        ((AbstractOperation)tmpThread).setOperations(getOpNumber());
         tmpThread.setName("t"+String.valueOf(iCnt) + "-" + tmpThread.getName());
         getLogger().debug("Starting Thread " + tmpThread.getName());
         this.runningThreads[iCnt] = tmpThread;
@@ -173,7 +199,7 @@ public class PerformanceTest {
    * Gets the number of threads being run
    * @return
    */
-  public int getNumThreads() {
+  public int getThreadsNum() {
     return numThreads;
   }
 
@@ -181,15 +207,46 @@ public class PerformanceTest {
    * Sets the number of threads that will be run
    * @param numThreads
    */
-  public void setNumThreads(int numThreads) {
+  public void setThreadsNum(int numThreads) {
     this.numThreads = numThreads;
   }
 
+  /**
+   * Getter for the default number of operations performed
+   * @return
+   */
+  public static int getDefaultOpNumber() {
+    return DEFAULT_OP_NUMBER;
+  }
+
+  /**
+   * Setter for the default number of operations performed
+   * @param pDefaultOpNumber
+   */
+  public static void setDefaultOpNumber(int pDefaultOpNumber) {
+    DEFAULT_OP_NUMBER = pDefaultOpNumber;
+  }
+  
   /**
    * Gets operation class logger object
    * @return
    */
   public static Logger getLogger(){
     return LOG;
+  }
+
+  /**
+   * Getter for the number of operations performed
+   * @return
+   */
+  public int getOpNumber() {
+    return opNumber;
+  }
+
+  /**
+   * Setter for the number of operations performed
+   */
+  public void setOpNumber(int opNumber) {
+    this.opNumber = opNumber;
   }
 }

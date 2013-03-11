@@ -1,4 +1,4 @@
-package com.eyllo.test.performance.operation;
+package com.eyllo.paprika.test.stress.operation;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +24,7 @@ public class ReadOperation extends AbstractOperation{
   /**
    * Server address
    */
-  private static String SERVER="http://ec2-184-73-121-5.compute-1.amazonaws.com";
+  private static String SERVER = "http://ec2-184-73-121-5.compute-1.amazonaws.com";
   
   /**
    * Server port
@@ -42,11 +42,6 @@ public class ReadOperation extends AbstractOperation{
   private static String PARAMETERS = "scenarioId=1&radius=10000&ll=-22.920734855121413,-43.2698221941406";
   
   /**
-   * Number of write operations to be performed
-   */
-  private int readOperations = 10000;
-
-  /**
    * Operation name
    */
   private static String operationName = "ReadOperation";
@@ -55,14 +50,14 @@ public class ReadOperation extends AbstractOperation{
    * Default constructor for the PutOperation
    */
   public ReadOperation(){
-    super(operationName);
+    super(operationName, 0, 0);
   }
 
   @Override
   public float doProcessing() throws InterruptedException {
     getLogger().info("Starting processing for " + getName());
     long startTime = System.nanoTime();
-    for (int iCnt = 0; iCnt < this.readOperations; iCnt++){
+    for (int iCnt = 0; iCnt < this.getOperations(); iCnt++){
       getLogger().debug("Reading from application: "+ Integer.toString(iCnt + 1));
       runReadOperation();
     }
@@ -90,28 +85,29 @@ public class ReadOperation extends AbstractOperation{
     }
   }
   
-  /**
-   * Getter for readOperation attribute
-   * @return
-   */
-  public int getReadOperations() {
-    return readOperations;
-  }
-
-  /**
-   * Setter for readOperation attribute
-   * @param writeOperations
-   */
-  public void setReadOperations(int writeOperations) {
-    this.readOperations = writeOperations;
-  }
 
   /**
    * Gets formed application URL
    * @return
    */
   public static String getURLSTRING() {
-    return SERVER + ":" + PORT + "/" + PATH + "?" + PARAMETERS;
+    return getServer() + ":" + PORT + "/" + PATH + "?" + PARAMETERS;
+  }
+
+  /**
+   * Getter for the Server where operation will be performed
+   * @return
+   */
+  public static String getServer() {
+    return SERVER;
+  }
+
+  /**
+   * Setter for the Server where operation will be performed
+   * @return
+   */
+  public static void setServer(String pServer) {
+    SERVER = pServer;
   }
 
 }
