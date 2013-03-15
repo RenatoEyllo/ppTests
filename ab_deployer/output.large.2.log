@@ -1,0 +1,510 @@
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+Completed 500 requests
+apr_socket_recv: Connection refused (61)
+Finished 500 requests
+INFO: POST header == 
+---
+GET /paprika.json HTTP/1.0
+Cookie: ll=-22.920734855121413,-43.2698221941406
+Authorization: Basic dG9tY2F0OnRvbWNhdA==
+Host: ec2-174-129-101-179.compute-1.amazonaws.com:8080
+User-Agent: ApacheBench/2.3
+Accept: */*
+
+
+---
+
+
+Server Software:        
+Server Hostname:        ec2-174-129-101-179.compute-1.amazonaws.com
+Server Port:            8080
+
+Document Path:          /paprika.json
+Document Length:        0 bytes
+
+Concurrency Level:      400
+Time taken for tests:   2.785 seconds
+Complete requests:      500
+Failed requests:        500
+   (Connect: 0, Receive: 500, Length: 0, Exceptions: 0)
+Write errors:           0
+Total transferred:      0 bytes
+HTML transferred:       0 bytes
+Requests per second:    179.56 [#/sec] (mean)
+Time per request:       2227.700 [ms] (mean)
+Time per request:       5.569 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.00 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:   119  415 608.7    213    2645
+Waiting:        0    0   0.0      0       0
+Total:        119  415 608.7    213    2645
+
+Percentage of the requests served within a certain time (ms)
+  50%    213
+  66%    255
+  75%    284
+  80%    296
+  90%   1458
+  95%   2552
+  98%   2625
+  99%   2642
+ 100%   2645 (longest request)
+===============================================================================
+===============================================================================
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+Completed 700 requests
+apr_socket_recv: Connection refused (61)
+Finished 700 requests
+INFO: POST header == 
+---
+GET /paprika.json HTTP/1.0
+Cookie: ll=-22.920734855121413,-43.2698221941406
+Authorization: Basic dG9tY2F0OnRvbWNhdA==
+Host: ec2-174-129-101-179.compute-1.amazonaws.com:8080
+User-Agent: ApacheBench/2.3
+Accept: */*
+
+
+---
+
+
+Server Software:        
+Server Hostname:        ec2-174-129-101-179.compute-1.amazonaws.com
+Server Port:            8080
+
+Document Path:          /paprika.json
+Document Length:        0 bytes
+
+Concurrency Level:      600
+Time taken for tests:   3.970 seconds
+Complete requests:      700
+Failed requests:        700
+   (Connect: 0, Receive: 700, Length: 0, Exceptions: 0)
+Write errors:           0
+Total transferred:      0 bytes
+HTML transferred:       0 bytes
+Requests per second:    176.32 [#/sec] (mean)
+Time per request:       3402.954 [ms] (mean)
+Time per request:       5.672 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.00 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:   115  601 817.5    249    3786
+Waiting:        0    0   0.0      0       0
+Total:        115  601 817.5    249    3786
+
+Percentage of the requests served within a certain time (ms)
+  50%    249
+  66%    296
+  75%    365
+  80%   1249
+  90%   1474
+  95%   2673
+  98%   3711
+  99%   3724
+ 100%   3786 (longest request)
+===============================================================================
+===============================================================================
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+Completed 800 requests
+apr_socket_recv: Connection refused (61)
+Finished 800 requests
+INFO: POST header == 
+---
+GET /paprika.json HTTP/1.0
+Cookie: ll=-22.920734855121413,-43.2698221941406
+Authorization: Basic dG9tY2F0OnRvbWNhdA==
+Host: ec2-174-129-101-179.compute-1.amazonaws.com:8080
+User-Agent: ApacheBench/2.3
+Accept: */*
+
+
+---
+
+
+Server Software:        
+Server Hostname:        ec2-174-129-101-179.compute-1.amazonaws.com
+Server Port:            8080
+
+Document Path:          /paprika.json
+Document Length:        0 bytes
+
+Concurrency Level:      700
+Time taken for tests:   4.588 seconds
+Complete requests:      800
+Failed requests:        800
+   (Connect: 0, Receive: 800, Length: 0, Exceptions: 0)
+Write errors:           0
+Total transferred:      0 bytes
+HTML transferred:       0 bytes
+Requests per second:    174.36 [#/sec] (mean)
+Time per request:       4014.700 [ms] (mean)
+Time per request:       5.735 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.00 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:   120  546 779.5    245    3784
+Waiting:        0    0   0.0      0       0
+Total:        120  546 779.5    245    3784
+
+Percentage of the requests served within a certain time (ms)
+  50%    245
+  66%    302
+  75%    388
+  80%    452
+  90%   1441
+  95%   2582
+  98%   3710
+  99%   3751
+ 100%   3784 (longest request)
+===============================================================================
+===============================================================================
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+Completed 900 requests
+apr_socket_recv: Connection refused (61)
+Finished 900 requests
+INFO: POST header == 
+---
+GET /paprika.json HTTP/1.0
+Cookie: ll=-22.920734855121413,-43.2698221941406
+Authorization: Basic dG9tY2F0OnRvbWNhdA==
+Host: ec2-174-129-101-179.compute-1.amazonaws.com:8080
+User-Agent: ApacheBench/2.3
+Accept: */*
+
+
+---
+
+
+Server Software:        
+Server Hostname:        ec2-174-129-101-179.compute-1.amazonaws.com
+Server Port:            8080
+
+Document Path:          /paprika.json
+Document Length:        0 bytes
+
+Concurrency Level:      800
+Time taken for tests:   5.138 seconds
+Complete requests:      900
+Failed requests:        900
+   (Connect: 0, Receive: 900, Length: 0, Exceptions: 0)
+Write errors:           0
+Total transferred:      0 bytes
+HTML transferred:       0 bytes
+Requests per second:    175.16 [#/sec] (mean)
+Time per request:       4567.232 [ms] (mean)
+Time per request:       5.709 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.00 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:   119  971 1350.0    267    5051
+Waiting:        0    0   0.0      0       0
+Total:        119  971 1350.0    267    5051
+
+Percentage of the requests served within a certain time (ms)
+  50%    267
+  66%    359
+  75%   1388
+  80%   1731
+  90%   3618
+  95%   3958
+  98%   4988
+  99%   5014
+ 100%   5051 (longest request)
+===============================================================================
+===============================================================================
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+apr_socket_recv: Connection refused (61)
+Completed 1000 requests
+apr_socket_recv: Connection refused (61)
+Finished 1000 requests
+INFO: POST header == 
+---
+GET /paprika.json HTTP/1.0
+Cookie: ll=-22.920734855121413,-43.2698221941406
+Authorization: Basic dG9tY2F0OnRvbWNhdA==
+Host: ec2-174-129-101-179.compute-1.amazonaws.com:8080
+User-Agent: ApacheBench/2.3
+Accept: */*
+
+
+---
+
+
+Server Software:        
+Server Hostname:        ec2-174-129-101-179.compute-1.amazonaws.com
+Server Port:            8080
+
+Document Path:          /paprika.json
+Document Length:        0 bytes
+
+Concurrency Level:      900
+Time taken for tests:   5.667 seconds
+Complete requests:      1000
+Failed requests:        1000
+   (Connect: 0, Receive: 1000, Length: 0, Exceptions: 0)
+Write errors:           0
+Total transferred:      0 bytes
+HTML transferred:       0 bytes
+Requests per second:    176.46 [#/sec] (mean)
+Time per request:       5100.263 [ms] (mean)
+Time per request:       5.667 [ms] (mean, across all concurrent requests)
+Transfer rate:          0.00 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:   115  957 1374.3    253    5095
+Waiting:        0    0   0.0      0       0
+Total:        115  957 1374.3    253    5095
+
+Percentage of the requests served within a certain time (ms)
+  50%    253
+  66%    381
+  75%   1288
+  80%   1534
+  90%   3647
+  95%   4699
+  98%   4984
+  99%   5072
+ 100%   5095 (longest request)
+===============================================================================
+===============================================================================

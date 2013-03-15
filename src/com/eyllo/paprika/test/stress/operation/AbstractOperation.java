@@ -87,7 +87,6 @@ public abstract class AbstractOperation extends Thread{
   public void run() {
     getLogger().debug("Processing - START "+Thread.currentThread().getName());
     try {
-      Thread.sleep(DEFAULT_WAIT_TIME);
       this.setMeasurement(doProcessing());
     } catch (InterruptedException e) {
       getLogger().error("Error while running "+Thread.currentThread().getName());

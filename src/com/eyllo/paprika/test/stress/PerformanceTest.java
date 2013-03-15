@@ -58,6 +58,11 @@ public class PerformanceTest {
   private int opNumber;
 
   /**
+   * Wait time used inside the whole test
+   */
+  private int waitTime;
+
+  /**
    * Threads that will be run
    */
   private Thread runningThreads[];
@@ -98,11 +103,12 @@ public class PerformanceTest {
       for(int iCnt = 0; iCnt < this.numThreads; iCnt++){
         Thread tmpThread = (Thread) pOperation.newInstance();
         ((AbstractOperation)tmpThread).setOperations(getOpNumber());
+        ((AbstractOperation)tmpThread).setWaitTime(getWaitTime());
         tmpThread.setName("t"+String.valueOf(iCnt) + "-" + tmpThread.getName());
         getLogger().debug("Starting Thread " + tmpThread.getName());
         this.runningThreads[iCnt] = tmpThread;
         this.runningThreads[iCnt].start();
-        System.out.println(String.valueOf(iCnt) + " threads started.");
+        getLogger().debug(String.valueOf(iCnt) + " threads started.");
       }
       result = true;
     }catch(Exception e){
@@ -208,6 +214,8 @@ public class PerformanceTest {
    * @param numThreads
    */
   public void setThreadsNum(int numThreads) {
+    this.setRunningThreads(new Thread[numThreads]);
+    this.setExecTime(new double[numThreads]);
     this.numThreads = numThreads;
   }
 
@@ -248,5 +256,21 @@ public class PerformanceTest {
    */
   public void setOpNumber(int opNumber) {
     this.opNumber = opNumber;
+  }
+
+  /**
+   * Getter for the wait time attribute
+   * @return waitTime
+   */
+  public int getWaitTime(){
+    return this.waitTime;
+  }
+  
+  /**
+   * Setter for the wait time attribute for the whole performance test
+   * @param pWaitTime
+   */
+  public void setWaitTime(int pWaitTime){
+    this.waitTime = pWaitTime;
   }
 }

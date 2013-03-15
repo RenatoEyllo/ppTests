@@ -45,7 +45,10 @@ public class TestRunner {
       CommandLineParser parser = new PosixParser();
       CommandLine cmd = parser.parse(options, args);
       
-      initialize(cmd.getOptionValue("op_name"), cmd.getOptionValue("thread_num", ""), cmd.getOptionValue("op_number", ""));
+      initialize( cmd.getOptionValue("op_name"), 
+                  cmd.getOptionValue("thread_num", ""),
+                  cmd.getOptionValue("op_number", ""),
+                  cmd.getOptionValue("wait_time",""));
       
       execute();
       
@@ -63,7 +66,8 @@ public class TestRunner {
     getLog().info("Performing tests");
     perfTest.waitForCompleting();
     double execSecsTime = perfTest.getAvgExecTime() / 1000000000.0;
-    getLog().info("%10.3f %s", execSecsTime, " seconds.");
+    getLog().info("Average execution time: " + String.valueOf(execSecsTime)
+                  + " secs for " + perfTest.getOpNumber() + " operations.");
   }
 
   /**
@@ -72,13 +76,14 @@ public class TestRunner {
    * @param pThreadNumber
    * @param oOpNumber
    */
-  private static void initialize(String pOpName, String pThreadNumber, String oOpNumber){
+  private static void initialize(String pOpName, String pThreadNumber, String oOpNumber, String pWaitTime){
     getLog().info("Initializing tests for " + pOpName + " operation");
     perfTest = new PerformanceTest();
     if(pOpName.equals("read")){
-      perfTest.startThreads(ReadOperation.class);
       perfTest.setThreadsNum(Integer.parseInt(pThreadNumber));
       perfTest.setOpNumber(Integer.parseInt(oOpNumber));
+      perfTest.setWaitTime(Integer.parseInt(pWaitTime));
+      perfTest.startThreads(ReadOperation.class);
     }
     else
       getLog().error("Error processing " + pOpName + " operation");

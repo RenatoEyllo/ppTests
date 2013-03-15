@@ -56,14 +56,18 @@ public class ReadOperation extends AbstractOperation{
   @Override
   public float doProcessing() throws InterruptedException {
     getLogger().info("Starting processing for " + getName());
-    long startTime = System.nanoTime();
+    long startTime, endTime;
+    long avgTime = 0;
     for (int iCnt = 0; iCnt < this.getOperations(); iCnt++){
       getLogger().debug("Reading from application: "+ Integer.toString(iCnt + 1));
+      Thread.sleep(this.getWaitTime());
+      startTime = System.nanoTime();
       runReadOperation();
+      endTime = System.nanoTime();
+      avgTime += endTime - startTime;
     }
-    long endTime = System.nanoTime();
     
-    return endTime - startTime;
+    return avgTime/this.getOperations();
   }
 
   /**
