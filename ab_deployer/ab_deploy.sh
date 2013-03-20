@@ -23,21 +23,20 @@ fi
 CONF_FILE=$2
 OUTPUT_FILE=$1
 DEFAULT_EXEC_NUM=1
-LINES_TAKEN=100
-SLEEP_TIME=10
+LINES_TAKEN=30
+SLEEP_TIME=5
 SERVER=$3
 
 # Executing Apache AB command for a number of times
-echo "Executing Apache AB command for ${EXEC_NUM}"
+echo "==============================="
+echo "= Executing Apache AB command ="
+echo "==============================="
 
 iCnt=0
 # Obtaining configuration to run Apache AB tool
 while read line
 do
 	let iCnt=iCnt+1
-	# Sleeping
-	echo "Giving the server ${SLEEP_TIME} of peace"
-	sleep ${SLEEP_TIME}
 	# Starting
 	echo "Time number ${iCnt} "
 	NUM_OPS=`echo $line | awk '{x=$1}END{print x}'`
@@ -49,5 +48,10 @@ do
 	# Separating outputs
 	echo "===============================================================================" >> $OUTPUT_FILE
 	echo "===============================================================================" >> $OUTPUT_FILE
+
+	# Sleeping
+	echo "Giving the server ${SLEEP_TIME} seconds of peace"
+	sleep ${SLEEP_TIME}
+
 done < "${CONF_FILE}"
 
