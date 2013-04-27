@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import com.eyllo.paprika.test.exception.PaprikaStressException;
 import com.eyllo.paprika.test.stress.operation.ReadOperation;
+import com.eyllo.paprika.test.stress.operation.WriteOperation;
 
 /**
  * Class in charge of running the specific operation test 
@@ -79,11 +80,17 @@ public class TestRunner {
   private static void initialize(String pOpName, String pThreadNumber, String oOpNumber, String pWaitTime){
     getLog().info("Initializing tests for " + pOpName + " operation");
     perfTest = new PerformanceTest();
-    if(pOpName.equals("read")){
+    if (pOpName.equals("read")){
       perfTest.setThreadsNum(Integer.parseInt(pThreadNumber));
       perfTest.setOpNumber(Integer.parseInt(oOpNumber));
       perfTest.setWaitTime(Integer.parseInt(pWaitTime));
       perfTest.startThreads(ReadOperation.class);
+    }
+    else if (pOpName.equals("write")){
+      perfTest.setThreadsNum(Integer.parseInt(pThreadNumber));
+      perfTest.setOpNumber(Integer.parseInt(oOpNumber));
+      perfTest.setWaitTime(Integer.parseInt(pWaitTime));
+      perfTest.startThreads(WriteOperation.class);
     }
     else
       getLog().error("Error processing " + pOpName + " operation");
