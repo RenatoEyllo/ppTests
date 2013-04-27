@@ -1,0 +1,160 @@
+Concurrency Level:      50
+Time taken for tests:   13.884 seconds
+Complete requests:      100
+Failed requests:        151
+   (Connect: 0, Receive: 54, Length: 97, Exceptions: 0)
+Write errors:           43
+Total transferred:      413768 bytes
+HTML transferred:       397636 bytes
+Requests per second:    7.20 [#/sec] (mean)
+Time per request:       6941.815 [ms] (mean)
+Time per request:       138.836 [ms] (mean, across all concurrent requests)
+Transfer rate:          29.10 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:      987 3952 2131.9   3680   11554
+Processing:     0 1415 2254.6    904   11971
+Waiting:        0   81 477.0      0    3592
+Total:       1221 5367 2902.1   5032   13738
+
+Percentage of the requests served within a certain time (ms)
+  50%   5032
+  66%   5360
+  75%   6823
+  80%   6823
+  90%  10662
+  95%  12311
+  98%  13481
+  99%  13738
+ 100%  13738 (longest request)
+===============================================================================
+===============================================================================
+Concurrency Level:      100
+Time taken for tests:   54.771 seconds
+Complete requests:      200
+Failed requests:        227
+   (Connect: 0, Receive: 58, Length: 169, Exceptions: 0)
+Write errors:           111
+Total transferred:      1122222 bytes
+HTML transferred:       1090550 bytes
+Requests per second:    3.65 [#/sec] (mean)
+Time per request:       27385.665 [ms] (mean)
+Time per request:       273.857 [ms] (mean, across all concurrent requests)
+Transfer rate:          20.01 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:     2251 10777 9844.9   7870   45284
+Processing:     0 10174 18489.9      0   52078
+Waiting:        0 1317 2889.4      0    9313
+Total:       2251 20951 17832.6  12813   54768
+
+Percentage of the requests served within a certain time (ms)
+  50%  12813
+  66%  19998
+  75%  40976
+  80%  46840
+  90%  50244
+  95%  53889
+  98%  54636
+  99%  54723
+ 100%  54768 (longest request)
+===============================================================================
+===============================================================================
+Concurrency Level:      200
+Time taken for tests:   80.035 seconds
+Complete requests:      400
+Failed requests:        444
+   (Connect: 0, Receive: 93, Length: 351, Exceptions: 0)
+Write errors:           196
+Total transferred:      2177372 bytes
+HTML transferred:       2123056 bytes
+Requests per second:    5.00 [#/sec] (mean)
+Time per request:       40017.715 [ms] (mean)
+Time per request:       200.089 [ms] (mean, across all concurrent requests)
+Transfer rate:          26.57 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:      180 15434 12123.3  10800   65069
+Processing:     0 15786 25819.5    273   77461
+Waiting:        0  668 1859.8      0    9561
+Total:       1621 31220 24495.5  27168   79922
+
+Percentage of the requests served within a certain time (ms)
+  50%  27168
+  66%  36711
+  75%  45315
+  80%  45316
+  90%  77509
+  95%  78471
+  98%  79515
+  99%  79746
+ 100%  79922 (longest request)
+===============================================================================
+===============================================================================
+Concurrency Level:      400
+Time taken for tests:   186.104 seconds
+Complete requests:      800
+Failed requests:        955
+   (Connect: 0, Receive: 296, Length: 659, Exceptions: 0)
+Write errors:           360
+Total transferred:      4394908 bytes
+HTML transferred:       4280800 bytes
+Requests per second:    4.30 [#/sec] (mean)
+Time per request:       93051.969 [ms] (mean)
+Time per request:       232.630 [ms] (mean, across all concurrent requests)
+Transfer rate:          23.06 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0 34721 35837.5  20639  143892
+Processing:     0 32096 49165.0   4544  183401
+Waiting:        0 1142 3354.6      0   21324
+Total:        968 66818 49283.2  62851  185986
+
+Percentage of the requests served within a certain time (ms)
+  50%  62851
+  66%  86786
+  75%  86791
+  80%  99070
+  90%  137991
+  95%  182656
+  98%  184691
+  99%  185467
+ 100%  185986 (longest request)
+===============================================================================
+===============================================================================
+Server: Apache-Coyote/1.1
+Content-Type: application/json;charset=UTF-8
+Date: Tue, 19 Mar 2013 04:50:48 GMT
+Connection: close
+
+{"geoTagArray":[{"text":"FB","title":"teste imagem","altitude":"50","licon":"ic_paprika","longitude":-43.33076477050781,"src":"media/null.jpg","latitude":-22.841059198386507,"type":"image"},{"infoBox":{"text":"","title":"Praia de Icarai"},"text":"Niterói","title":"Praia de Icarai","altitude":"50","licon":"ic_paprika","longitude":-43.1134414672851,"latitude":-22.907487204977322,"type":"text"},{"text":"teste","title":"teste","altitude":"50","licon":"ic_paprika","longitude":-43.17420959472656,"src":"media/null.jpg","latitude":-22.904008449404955,"type":"undefined"},{"text":"","title":"","altitude":"50","licon":"ic_paprika","longitude":-43.228797912597656,"src":"media/null.jpg","latitude":-22.90035170672051,"type":"image"},{"text":"eyllo tecnologia","title":"eyllo","altitude":"50","licon":"ic_paprika","longitude":-43.222585916519165,"src":"media/null.jpg","latitude":
+LOG: Response code = 200
+LOG: header received:
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: application/json;charset=UTF-8
+Date: Tue, 19 Mar 2013 04:50:48 GMT
+Connection: close
+
+{"geoTagArray":[{"text":"FB","title":"teste imagem","altitude":"50","licon":"ic_paprika","longitude":-43.33076477050781,"src":"media/null.jpg","latitude":-22.841059198386507,"type":"image"},{"infoBox":{"text":"","title":"Praia de Icarai"},"text":"Niterói","title":"Praia de Icarai","altitude":"50","licon":"ic_paprika","longitude":-43.1134414672851,"latitude":-22.907487204977322,"type":"text"},{"text":"teste","title":"teste","altitude":"50","licon":"ic_paprika","longitude":-43.17420959472656,"src":"media/null.jpg","latitude":-22.904008449404955,"type":"undefined"},{"text":"","title":"","altitude":"50","licon":"ic_paprika","longitude":-43.228797912597656,"src":"media/null.jpg","latitude":-22.90035170672051,"type":"image"},{"text":"eyllo tecnologia","title":"eyllo","altitude":"50","licon":"ic_paprika","longitude":-43.222585916519165,"src":"media/null.jpg","latitude":
+LOG: Response code = 200
+LOG: header received:
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: application/json;charset=UTF-8
+Date: Tue, 19 Mar 2013 04:50:49 GMT
+Connection: close
+
+{"geoTagArray":[{"text":"FB","title":"teste imagem","altitude":"50","licon":"ic_paprika","longitude":-43.
+Test aborted after 10 failures
+
+apr_socket_connect(): Operation timed out (60)
+33076477050781,"src":"media/null.jpg","latitude":-22.841059198386507,"type":"image"},{"infoBox":{"text":"","title":"Praia de Icarai"},"text":"Niterói","title":"Praia de Icarai","altitude":"50","licon":"ic_paprika","longitude":-43.1134414672851,"latitude":-22.907487204977322,"type":"text"},{"text":"teste","title":"teste","altitude":"50","licon":"ic_paprika","longitude":-43.17420959472656,"src":"media/null.jpg","latitude":-22.904008449404955,"type":"undefined"},{"text":"","title":"","altitude":"50","licon":"ic_paprika","longitude":-43.228797912597656,"src":"media/null.jpg","latitude":-22.90035170672051,"type":"image"},{"text":"eyllo tecnologia","title":"eyllo","altitude":"50","licon":"ic_paprika","longitude":-43.222585916519165,"src":"media/null.jpg","latitude":
+LOG: Response code = 200
+Total of 294 requests completed
+===============================================================================
+===============================================================================
