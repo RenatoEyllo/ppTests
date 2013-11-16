@@ -2,7 +2,7 @@
 if [ -z "$1" ]
 then
 	echo "ERROR: OUTPUT FILE NAME REQUIRED."
-	echo "ab_deployer <outputFile> <configFile> <server>"
+	echo "ab_deployer <outputFile> <configFile> <server> <read|write>"
 	exit 1
 fi
 
@@ -30,7 +30,7 @@ fi
 CONF_FILE=$2
 OUTPUT_FILE=$1
 DEFAULT_EXEC_NUM=1
-LINES_TAKEN=100
+LINES_TAKEN=30
 SLEEP_TIME=5
 SERVER=$3
 COOR1=$[ ( $RANDOM % 180 )  + 1 ]
