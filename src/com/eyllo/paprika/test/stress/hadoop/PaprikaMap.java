@@ -1,6 +1,8 @@
 package com.eyllo.paprika.test.stress.hadoop;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -60,14 +62,24 @@ public class PaprikaMap extends Mapper<LongWritable , Text, Text, Text> {
   protected void cleanup(Context context) throws IOException, InterruptedException {
     Iterator it = localCache.entrySet().iterator();
     StringBuilder strAvg = new StringBuilder();
+    try{
     context.write(new Text(taskname), new Text("Averaging: " + String.valueOf(PaprikaJobExecutor.NUM_PROCESS)));
+    }catch ( NullPointerException e ){
+      e.printStackTrace();
+      System.out.println("Error outputting " + taskname + " with number of processes 600");
+    }
     while (it.hasNext()) {
+      try{
       Map.Entry pairs = (Map.Entry)it.next();
       strAvg.append(pairs.getKey() + " = ");
       strAvg.append(String.valueOf(Float.parseFloat(pairs.getValue().toString()) / PaprikaJobExecutor.NUM_PROCESS));
       context.write(new Text(taskname), new Text(strAvg.toString()));
       strAvg.setLength(0);
       it.remove(); // avoids a ConcurrentModificationException
+      }catch ( NullPointerException e ){
+        e.printStackTrace();
+        System.out.println("Error outputting " + taskname + " while averaging something");
+      }
     }
   }
 
@@ -104,22 +116,35 @@ public class PaprikaMap extends Mapper<LongWritable , Text, Text, Text> {
   private void commandExecute(String pCommand, Context context) throws InterruptedException{
     String line = "";
 
+    ProcessBuilder pb = new ProcessBuilder("bash", "-c", pCommand);
+    Process p = null;
     try {
-      Runtime r = Runtime.getRuntime();
-      Process p = r.exec(pCommand);
-      p.waitFor();
-      
-      //while ((line = b.readLine()) != null) { //  if (isRelevant(line)) //    System.out.println(line); //}
-
-      Scanner s = new Scanner(p.getInputStream());
-      while (s.hasNextLine()) {
-          line = s.nextLine();
-          aggregateLine(line);
-      }
-
+      pb.redirectErrorStream(true);
+      p = pb.start();
     } catch (IOException e) {
-      System.err.println("Error while executing the command " + pCommand);
-      e.printStackTrace();
+       // TODO Auto-generated catch block
+       e.printStackTrace();
+    } 
+    BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
+    line = null;
+    try {
+       while ((line = reader.readLine()) != null)
+        {
+           //System.out.println(line);
+           aggregateLine(line);
+        }
+    }catch (IOException e) {
+       // TODO Auto-generated catch block
+       e.printStackTrace();
+    }
+    
+    try {
+       p.waitFor();
+    } catch (InterruptedException e) {
+       // TODO Auto-generated catch block
+       e.printStackTrace();
+    } finally{
+      p.destroy();
     }
   }
 
@@ -130,7 +155,7 @@ public class PaprikaMap extends Mapper<LongWritable , Text, Text, Text> {
    * @return
    */
   private FloatWritable getValue(String pLine, int pPos){
-    String []values =pLine.replaceAll("  +", "").replace(":", " ").split(" ");
+    String []values =pLine.replaceAll("  +", "").replace(":", " ").replace("%"," ").split(" ");
     return new FloatWritable(Float.parseFloat(values[pPos]));
   }
 
@@ -141,53 +166,59 @@ public class PaprikaMap extends Mapper<LongWritable , Text, Text, Text> {
    */
   private void aggregateLine(String pLine){
     FloatWritable value, initValue;
-    if (pLine.contains("Concurrency Level:")){
-      value = getValue(pLine, 2);
-      initValue = localCache.get(new Text("Concurrency Level:"));
-      if (initValue == null)
-        initValue = new FloatWritable(0);
-      value.set(initValue.get() + value.get());
-      localCache.put(new Text("Concurrency Level:"), value);
-    }
-    else if (pLine.contains("Complete requests:")){
-      value = getValue(pLine, 2);
-      initValue = localCache.get(new Text("Complete requests:"));
-      if (initValue == null)
-        initValue = new FloatWritable(0);
-      value.set(initValue.get() + value.get());
-      localCache.put(new Text("Complete requests:"), value);
-    }
-    else if (pLine.contains("Time taken for tests:")){
-      value = getValue(pLine, 4);
-      initValue = localCache.get(new Text("Time taken for tests:"));
-      if (initValue == null)
-        initValue = new FloatWritable(0);
-      value.set(initValue.get() + value.get());
-      localCache.put(new Text("Time taken for tests:"), value);
-    }
-    else if (pLine.contains("Requests per second:")){
-      value = getValue(pLine, 3);
-      initValue = localCache.get(new Text("Requests per second:"));
-      if (initValue == null)
-        initValue = new FloatWritable(0);
-      value.set(initValue.get() + value.get());
-      localCache.put(new Text("Requests per second:"), value);
-    }
-    else if (pLine.contains("(mean, across all concurrent requests)")){
-      value = getValue(pLine, 3);
-      initValue = localCache.get(new Text("(mean, across all concurrent requests)"));
-      if (initValue == null)
-        initValue = new FloatWritable(0);
-      value.set(initValue.get() + value.get());
-      localCache.put(new Text("(mean, across all concurrent requests)"), value);
-    }
-    else if (pLine.contains("longest request")){
-      value = getValue(pLine, 1);
-      initValue = localCache.get(new Text("longest request:"));
-      if (initValue == null)
-        initValue = new FloatWritable(0);
-      value.set(initValue.get() + value.get());
-      localCache.put(new Text("longest request:"), value);
+    try{
+        if (pLine.contains("Concurrency Level:")){
+          value = getValue(pLine, 2);
+          initValue = localCache.get(new Text("Concurrency Level:"));
+          if (initValue == null)
+            initValue = new FloatWritable(0);
+          value.set(initValue.get() + value.get());
+          localCache.put(new Text("Concurrency Level:"), value);
+        }
+        else if (pLine.contains("Complete requests:")){
+          value = getValue(pLine, 2);
+          initValue = localCache.get(new Text("Complete requests:"));
+          if (initValue == null)
+            initValue = new FloatWritable(0);
+          value.set(initValue.get() + value.get());
+          localCache.put(new Text("Complete requests:"), value);
+        }
+        else if (pLine.contains("Time taken for tests:")){
+          value = getValue(pLine, 4);
+          initValue = localCache.get(new Text("Time taken for tests:"));
+          if (initValue == null)
+            initValue = new FloatWritable(0);
+          value.set(initValue.get() + value.get());
+          localCache.put(new Text("Time taken for tests:"), value);
+        }
+        else if (pLine.contains("Requests per second:")){
+          value = getValue(pLine, 3);
+          initValue = localCache.get(new Text("Requests per second:"));
+          if (initValue == null)
+            initValue = new FloatWritable(0);
+          value.set(initValue.get() + value.get());
+          localCache.put(new Text("Requests per second:"), value);
+        }
+        else if (pLine.contains("(mean, across all concurrent requests)")){
+          value = getValue(pLine, 3);
+          initValue = localCache.get(new Text("(mean, across all concurrent requests)"));
+          if (initValue == null)
+            initValue = new FloatWritable(0);
+          value.set(initValue.get() + value.get());
+          localCache.put(new Text("(mean, across all concurrent requests)"), value);
+        }
+        else if (pLine.contains("longest request")){
+          value = getValue(pLine, 1);
+          initValue = localCache.get(new Text("longest request:"));
+          if (initValue == null)
+            initValue = new FloatWritable(0);
+          value.set(initValue.get() + value.get());
+          localCache.put(new Text("longest request:"), value);
+        }
+    }catch(Exception e){
+      e.printStackTrace();
+      System.out.println(pLine);
     }
   }
+  
 }

@@ -27,9 +27,9 @@ public class PaprikaJobExecutor {
   private String split;
 
   /**
-   * Number of processes within a Mapper
+   * Number of processes within a Mapper i.e. number of lines per mapper
    */
-  public static int NUM_PROCESS = 2;
+  public static int NUM_PROCESS = 10;
 
   /**
    * Default constructor
@@ -116,7 +116,7 @@ public class PaprikaJobExecutor {
 
     int numberProcess = NUM_PROCESS;
     int numberSplit = Integer.parseInt(executor.getSplit());
-    NThreadInputFormat.setNumberOfProcess( job, numberProcess);
+    NThreadInputFormat.setNumberOfProcess(job, numberProcess);
     NThreadInputFormat.setNumberOfSplits(job, numberSplit);
     job.setInputFormatClass(NThreadInputFormat.class);
     

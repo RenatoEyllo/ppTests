@@ -1,16 +1,11 @@
 package com.eyllo.paprika.test.stress.operation;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.List;
 
-import org.apache.commons.io.IOUtils;
+import javax.servlet.ServletException;
 
 import com.eyllo.database.DataTierMongoDB;
-import com.eyllo.database.UnavailableException;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
@@ -56,7 +51,7 @@ public class WriteOperation extends AbstractOperation{
   static{
     try {
       mongoAccess = new DataTierMongoDB();
-    } catch (UnavailableException e) {
+    } catch (ServletException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
@@ -75,7 +70,7 @@ public class WriteOperation extends AbstractOperation{
     long avgTime = 0;
     
     startTime = System.nanoTime();
-    DBCollection tmpCollection = mongoAccess.returnCollection("eyllo_test", "users");
+    DBCollection tmpCollection = mongoAccess.getCollection("eyllo_test", "users");
     
     DBCursor results = tmpCollection.find();
     for(DBObject obj : results){
